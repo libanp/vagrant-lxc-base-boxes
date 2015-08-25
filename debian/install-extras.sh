@@ -9,11 +9,11 @@ info 'Installing extra packages and upgrading'
 debug 'Bringing container up'
 utils.lxc.start
 
-# Sleep for a bit so that the container can get an IP
+# Sleep so that the container can get an IP and DNS
 log 'Sleeping for 10 seconds...'
 sleep 10 
 
-# ca-certificates pkg fails without /tmp/user/0 directory
+# ca-certificates pkg fails without /tmp/user/0
 utils.lxc.attach mkdir -p /tmp/user/0
 
 # TODO: Support for appending to this list from outside

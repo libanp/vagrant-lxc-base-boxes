@@ -17,7 +17,7 @@ sleep 10
 utils.lxc.attach mkdir -p /tmp/user/0
 
 # TODO: Support for appending to this list from outside
-PACKAGES=(vim curl wget man-db bash-completion python-software-properties ca-certificates sudo)
+PACKAGES=(vim curl wget man-db bash-completion python-software-properties ca-certificates sudo openssh-server)
 if [ $DISTRIBUTION = 'ubuntu' ]; then
   PACKAGES+=' software-properties-common'
 fi

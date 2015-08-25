@@ -13,6 +13,9 @@ utils.lxc.start
 log 'Sleeping for 10 seconds...'
 sleep 10 
 
+# ca-certificates pkg fails without /tmp/user/0 directory
+utils.lxc.attach mkdir -p /tmp/user/0
+
 # TODO: Support for appending to this list from outside
 PACKAGES=(vim curl wget man-db bash-completion python-software-properties ca-certificates sudo)
 if [ $DISTRIBUTION = 'ubuntu' ]; then

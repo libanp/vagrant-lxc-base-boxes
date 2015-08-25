@@ -14,8 +14,11 @@ fi
 utils.lxc.start
 
 if [ ${DISTRIBUTION} = 'debian' ]; then
-  # Ensure locales are properly set, based on http://askubuntu.com/a/238063
-  LANG=${LANG:-en_US.UTF-8}
+  #Checks to see if LANG exists in locale.gen
+  if ! grep -q "${LANG}" ${ROOTFS}/etc/locale.gen; then
+    LANG='en_US.UTF-8'
+  fi
+  
   sed -i "s/^# ${LANG}/${LANG}/" ${ROOTFS}/etc/locale.gen
 
   # Fixes some networking issues

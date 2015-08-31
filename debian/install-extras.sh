@@ -85,6 +85,9 @@ if [ $SALT = 1 ]; then
         SALT_SOURCE_2="deb http://backports.debian.org/debian-backports squeeze-backports main contrib non-free"
       elif [ $RELEASE == "wheezy" ]; then
         SALT_SOURCE_1="deb http://debian.saltstack.com/debian wheezy-saltstack main"
+        SALT_SOURCE_2="deb http://backports.debian.org/debian-backports wheezy-backports main contrib non-free"
+      elif [ $RELEASE == "jessie" ]; then
+        SALT_SOURCE_1="deb http://debian.saltstack.com/debian jessie-saltstack main"
       else
         SALT_SOURCE_1="deb http://debian.saltstack.com/debian unstable main"
       fi
